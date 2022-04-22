@@ -1,0 +1,17 @@
+body {
+	font-size: small;
+}
+input[type="text"] {
+	background-color: rgba(0, 0, 0, 0.1);
+	border: none;
+	border-radius: 1em;
+	padding: 0.5em 1em;
+}
+input[type="button"] {
+	background-color: rgba(0, 128, 255, 1);
+	color: white;
+	border: none;
+	border-radius: 1em;
+	padding: 0.5em 1em;
+	line-height: 1;
+}
