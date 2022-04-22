@@ -7,12 +7,12 @@ Goであそぼう
 ## TODO
 
 - Goアプリを作る
-    - hello, worldする
+    - hello, worldする (go1)
 - GUIアプリケーションを作る
-    - Lorcaで静的UIを出す
+    - Lorcaで静的UIを出す (gui1)
     - JSでGoを呼ぶ
     - GoでJSを呼ぶ
     - UIを動的に更新する
-    - `go:embed`で埋め込んだHTMLを出す
+    - `go:embed`で埋め込んだHTMLを出す (gui2, gui3)
 - Excelからデータを読む
 - Webページからデータを読む
