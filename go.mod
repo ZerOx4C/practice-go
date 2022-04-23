@@ -2,6 +2,14 @@ module practice-go
 
 go 1.18
 
-require github.com/zserge/lorca v0.1.10
+require (
+	github.com/antchfx/htmlquery v1.2.4
+	github.com/zserge/lorca v0.1.10
+)
 
-require golang.org/x/net v0.0.0-20200222125558-5a598a2470a0 // indirect
+require (
+	github.com/antchfx/xpath v1.2.0 // indirect
+	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
+	golang.org/x/net v0.0.0-20200421231249-e086a090c8fd // indirect
+	golang.org/x/text v0.3.0 // indirect
+)
