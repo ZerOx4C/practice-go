@@ -1,0 +1,58 @@
+body {
+	font-size: small;
+}
+
+input[type="text"] {
+	background-color: rgba(0, 0, 0, 0.1);
+	border: none;
+	border-radius: 1em;
+	padding: 0.5em 1em;
+}
+
+input[type="text"]:hover {
+	background-color: rgba(0, 0, 0, 0.15);
+}
+
+input[type="button"] {
+	background-color: rgba(0, 128, 255, 1);
+	color: white;
+	border: none;
+	border-radius: 1em;
+	padding: 0.5em 1em;
+	line-height: 1;
+}
+
+input[type="button"]:hover {
+	background-color: rgba(0, 128, 255, 0.8);
+}
+
+input[type="button"]:active {
+	background-color: rgba(0, 128, 255, 1);
+}
+
+th {
+	font-weight: bold;
+}
+
+tbody p {
+	margin: 0;
+	padding: 0 1em;
+}
+
+.id {
+	width: 6em;
+	text-align: right;
+}
+
+.name {
+	width: 10em;
+}
+
+.age {
+	width: 6em;
+	text-align: right;
+}
+
+.add, .remove {
+	width: 3em;
+}

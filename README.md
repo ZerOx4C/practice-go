@@ -10,9 +10,9 @@ Goであそぼう
     - hello, worldする (go1)
 - GUIアプリケーションを作る
     - Lorcaで静的UIを出す (gui1)
-    - JSでGoを呼ぶ (gui4)
-    - GoでJSを呼ぶ (gui4)
-    - UIを動的に更新する
-    - `go:embed`で埋め込んだHTMLを出す (gui2, gui3)
+    - JSでGoを呼ぶ (gui4, gui5)
+    - GoでJSを呼ぶ (gui4, gui5)
+    - UIを動的に更新する (gui5)
+    - `go:embed`で埋め込んだHTMLを出す (gui2, gui3, gui5)
 - Excelからデータを読む
 - Webページからデータを読む

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GUIのサンプルだよ</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js"></script>
+	</head>
+	<body onload="init(this)">
+		<template id="row-origin">
+			<tr>
+				<td><p class="id"></p></td>
+				<td><p class="name"></p></td>
+				<td><p class="age"></p></td>
+				<td><input class="remove" type="button" value="-" onclick="onRemoveClicked(this)" /></td>
+			</tr>
+		</template>
+		<h1>動的UIだよ</h1>
+		<table id="list">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>name</th>
+					<th>age</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+			<tfoot>
+				<tr>
+					<td><input class="id" type="text" placeholder="ID" onfocus="this.select()" /></td>
+					<td><input class="name" type="text" placeholder="name" onfocus="this.select()" /></td>
+					<td><input class="age" type="text" placeholder="age" onfocus="this.select()" /></td>
+					<td><input class="add" type="button" value="+" onclick="onAddClicked(this)" /></td>
+				</tr>
+			</tfoot>
+		</table>
+		<input class="save" type="button" value="save" onclick="onSaveClicked(this)" />
+	</body>
+</html>
