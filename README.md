@@ -16,3 +16,5 @@ Goであそぼう
     - `go:embed`で埋め込んだHTMLを出す (gui2, gui3, gui5)
 - Excelからデータを読む
 - Webページからデータを読む
+    - GETリクエストをする (http1)
+    - DOMを解析する
