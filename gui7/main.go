@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"fmt"
 	"io/fs"
 	"net/http"
 
@@ -29,6 +30,7 @@ func main() {
 	ui.Bind("fetchArray", fetchArray)
 	ui.Bind("fetchTable", fetchTable)
 	ui.Bind("fetchComplex", fetchComplex)
+	ui.Bind("invokeGetComplex", invokeGetComplex)
 
 	<-ui.Done()
 }
@@ -49,13 +51,26 @@ func fetchTable() (map[string]int, error) {
 	return map[string]int{"foo": 123, "bar": 456, "baz": 789}, nil
 }
 
-func fetchComplex() (map[string]interface{}, error) {
-	return map[string]interface{}{
+func fetchComplex() (interface{}, error) {
+	value := map[string]interface{}{
 		"foo": 123,
 		"bar": "hello",
 		"baz": map[string]int{
 			"hoge": 456,
 			"piyo": 789,
 		},
-	}, nil
+	}
+	fmt.Printf("%#v\n", value)
+	return value, nil
+}
+
+func invokeGetComplex() {
+	value := ui.Eval("getComplex()")
+
+	var dest interface{}
+	err := value.To(&dest)
+
+	fmt.Println(dest.(map[string]interface{})["bar"])
+	fmt.Printf("%#v\n", dest)
+	fmt.Printf("%#v\n", err)
 }
