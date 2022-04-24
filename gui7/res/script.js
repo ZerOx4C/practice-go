@@ -14,6 +14,10 @@ function onFetchTableClicked(sender) {
 	fetchTable().then(value => updateOutput(value));
 }
 
+function onFetchComplexClicked(sender) {
+	fetchComplex().then(value => updateOutput(value));
+}
+
 function updateOutput(value) {
 	document.getElementById("output").innerText = JSON.stringify(value);
 }
