@@ -14,6 +14,7 @@ Goであそぼう
     - GoでJSを呼ぶ (gui4, gui5)
     - UIを動的に更新する (gui5)
     - `go:embed`で埋め込んだHTMLを出す (gui2, gui3, gui5)
+    - 複数のウィンドウを開く (gui6)
 - Excelからデータを読む
 - Webページからデータを読む
     - GETリクエストをする (http1)
