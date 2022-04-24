@@ -1,0 +1,20 @@
+body {
+	font-size: small;
+}
+
+input[type="button"] {
+	background-color: rgba(0, 128, 255, 1);
+	color: white;
+	border: none;
+	border-radius: 1em;
+	padding: 0.5em 1em;
+	line-height: 1;
+}
+
+input[type="button"]:hover {
+	background-color: rgba(0, 128, 255, 0.8);
+}
+
+input[type="button"]:active {
+	background-color: rgba(0, 128, 255, 1);
+}
