@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/ncruces/zenity"
 	"github.com/zserge/lorca"
 )
 
@@ -47,7 +48,12 @@ func save() {
 		table = append(table, row)
 	}
 
-	file, err := os.Create("output.csv")
+	path, err := openSaveCsvDialog()
+	if err != nil {
+		return
+	}
+
+	file, err := os.Create(path)
 	if err != nil {
 		panic(err)
 	}
@@ -57,4 +63,12 @@ func save() {
 	file.Close()
 
 	ui.Eval("alert('保存したよ')")
+}
+
+func openSaveCsvDialog() (string, error) {
+	options := []zenity.Option{}
+	options = append(options, zenity.FileFilter{Name: "CSVファイル (*.csv)", Patterns: []string{"*.csv"}})
+	options = append(options, zenity.FileFilter{Name: "すべてのファイル (*.*)", Patterns: []string{"*"}})
+	options = append(options, zenity.ConfirmOverwrite())
+	return zenity.SelectFileSave(options...)
 }
