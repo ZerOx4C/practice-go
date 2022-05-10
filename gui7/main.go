@@ -51,8 +51,8 @@ func fetchTable() (map[string]int, error) {
 	return map[string]int{"foo": 123, "bar": 456, "baz": 789}, nil
 }
 
-func fetchComplex() (interface{}, error) {
-	value := map[string]interface{}{
+func fetchComplex() (any, error) {
+	value := map[string]any{
 		"foo": 123,
 		"bar": "hello",
 		"baz": map[string]int{
@@ -67,10 +67,10 @@ func fetchComplex() (interface{}, error) {
 func invokeGetComplex() {
 	value := ui.Eval("getComplex()")
 
-	var dest interface{}
+	var dest any
 	err := value.To(&dest)
 
-	fmt.Println(dest.(map[string]interface{})["bar"])
+	fmt.Println(dest.(map[string]any)["bar"])
 	fmt.Printf("%#v\n", dest)
 	fmt.Printf("%#v\n", err)
 }
