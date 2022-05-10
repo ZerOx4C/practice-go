@@ -4,7 +4,10 @@ import (
 	"embed"
 	"fmt"
 	"io/fs"
+	"net"
 	"net/http"
+	"strconv"
+	"strings"
 
 	"github.com/zserge/lorca"
 )
@@ -13,16 +16,41 @@ import (
 var assets embed.FS
 var ui lorca.UI
 
-func main() {
+func runServer() (string, error) {
 	documentRoot, err := fs.Sub(assets, "res")
+	if err != nil {
+		return "", err
+	}
+
+	listener, err := net.Listen("tcp", "localhost:0")
+	if err != nil {
+		return "", err
+	}
+
+	defer listener.Close()
+
+	addressString := listener.Addr().String()
+	portString := strings.Split(addressString, ":")[1]
+	_, err = strconv.Atoi(portString)
+	if err != nil {
+		return "", err
+	}
+
+	listener.Close()
+
+	http.Handle("/", http.FileServer(http.FS(documentRoot)))
+	go http.ListenAndServe(addressString, nil)
+
+	return ("http://" + addressString), nil
+}
+
+func main() {
+	url, err := runServer()
 	if err != nil {
 		panic(err)
 	}
 
-	http.Handle("/", http.FileServer(http.FS(documentRoot)))
-	go http.ListenAndServe(":8080", nil)
-
-	ui, _ = lorca.New("http://localhost:8080", "", 640, 480)
+	ui, _ = lorca.New(url, "", 640, 480)
 	defer ui.Close()
 
 	ui.Bind("fetchString", fetchString)
